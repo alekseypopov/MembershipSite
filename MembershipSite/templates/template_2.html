@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags i18n menu_tags %}
+
+{% block base_content %}
+	<ul>
+		{% show_menu 1 100 100 100 %}
+	</ul>
+    <h1>This is second template</h1>
+	{% placeholder template_2_content %}
+{% endblock %}

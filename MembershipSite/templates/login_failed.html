@@ -1,0 +1,12 @@
+{% load cms_tags sekizai_tags %}
+<html>
+<head>
+	<title>Try Again</title>
+	{% render_block "css" %}
+</head>
+<body>
+	<h1>Login Failed : Your Username or Password is wrong</h1>
+	<a href="/">Cancel</a>
+	<a href="/login">Try Again</a>
+	{% render_block "js" %}
+</body>

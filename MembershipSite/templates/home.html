@@ -1,0 +1,44 @@
+{% load cms_tags sekizai_tags %}
+{% load menu_tags %}
+<html>
+<head>
+	<title>{% page_attribute "page_title" %}</title>
+	<style type="text/css">
+		#header_wrapper{
+			width : 100%;
+			height : 100px;
+			position: relative;
+		}
+	</style>
+	{% render_block "css" %}
+</head>
+<body>
+	{% if user.is_authenticated %}
+		<div id="header_wrapper">
+			<span style="position:absolute; left:30px; bottom:30px;">
+				Username: {{ request.user.username }},
+				EmailAddress: {{request.user.email }}
+			</span>
+			<span style="position:absolute; right:30px; bottom: 30px;"> 
+				<a href="/editprofile">Edit Profile</a>
+				<a href="/logout">Log Out</a>
+			</span>
+		</div>
+	{% else %}
+		<div id="header_wrapper">
+			<span style="position:absolute; right:30px; bottom: 30px;"> 
+				<a href="\login">Login</a>
+				<a href="\registration">Sign in</a>
+			</span>
+		</div>
+	{% endif %}
+	{% show_menu 0%}
+ 	{% placeholder base_content %}
+	{% block base_content%}{% endblock %}
+	{% if user.is_authenticated %}
+		{% placeholder home_content %}
+	{% endif %}
+	{% render_block "js" %}
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+{% load cms_tags sekizai_tags %}
+<html>
+<head>
+	<title>Log In</title>
+	{% render_block "css" %}
+</head>
+<body>
+	<h1>This is "Login" Page</h1>
+	
+	<form method="post" action="/login/">
+		{% csrf_token %}
+		<label for="id_username"> {{ form.username.label }}</label> {{form.username}}<br/>
+		<label for="id_password"> {{ form.password.label }}</label> {{form.password}}<br/>
+		<a href="/">Cancel</a>
+		<input type="submit" value="Continue"><br/>
+	</form>
+	{% render_block "js" %}
+</body>

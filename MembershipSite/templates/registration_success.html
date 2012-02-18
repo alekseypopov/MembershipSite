@@ -1,0 +1,15 @@
+{% load cms_tags sekizai_tags %}
+{% load menu_tags %}
+<html>
+<head>
+	<title>Congratulation!</title>
+	{% render_block "css" %}
+</head>
+<body>
+	{% cms_toolbar %}
+	<h1>Thank you!<h1>
+	Please <a href="\login">Login</a> here
+ 	{% render_block "js" %}
+</body>
+</html>
+
